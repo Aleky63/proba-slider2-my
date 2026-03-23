@@ -8,7 +8,7 @@ body {
   font-family: "Muli", sans-serif;
   overflow: hidden;
   margin: 0;
-  background: rgb(108, 68, 218);
+  background: lightgreen;
   display: flex;
   height: 100vh;
   justify-content: center;
@@ -21,6 +21,7 @@ body {
 }
 .slide {
   height: 80vh;
+  min-width: 50px;
   border-radius: 20px;
   margin: 10px;
   cursor: pointer;
@@ -46,4 +47,70 @@ body {
 .slide.active h3 {
   opacity: 1;
   transition: opacity 0.3s ease-in 1s;
+}
+
+/* Media query for 768px (Tablets) */
+@media (max-width: 768px) {
+  body {
+    height: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
+    justify-content: flex-start;
+    align-items: stretch;
+    padding: 0;
+  }
+
+  .container {
+    flex-direction: column;
+    padding: 10px;
+    width: 100%;
+    height: auto;
+  }
+
+  .slide {
+    height: 50vh;
+    width: 100% !important;
+    margin: 8px 0;
+    border-radius: 15px;
+    flex: none;
+  }
+
+  .slide h3 {
+    font-size: 32px;
+  }
+
+  .slide.active {
+    flex: none;
+    height: 50vh;
+  }
+}
+
+/* Media query for 320px (Mobile phones) */
+@media (max-width: 320px) {
+  body {
+    height: auto;
+    overflow-y: auto;
+    padding: 10px 0;
+  }
+
+  .container {
+    flex-direction: column;
+    padding: 5px;
+  }
+
+  .slide {
+    height: 30vh;
+    margin: 5px;
+    border-radius: 10px;
+  }
+
+  .slide h3 {
+    font-size: 20px;
+    bottom: 5px;
+    left: 10px;
+  }
+
+  .slide.active {
+    flex: 1.5;
+  }
 }
